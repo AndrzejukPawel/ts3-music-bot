@@ -105,5 +105,9 @@ dist
 
 
 ts3client/*
+!ts3client/dummy.txt
+
 chromium_extensions/*
+!chromium_extensions/dummy.txt
+
 src/*.js
