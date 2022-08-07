@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+ts3client/*
+chromium_extensions/*
+src/*.js

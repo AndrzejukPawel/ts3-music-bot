@@ -1,0 +1,10 @@
+{
+    "audioDeviceName": "Line 1",
+    "exePath": "D:/Visual projects/ts3-music-bot/ts3client/ts3client_win64.exe",
+    "exeParams": [
+        "-nosingleinstance"
+    ],
+    "apiKey": "XGX4-CLS5-U9BS-19CO-3V5U-72BO",
+    "ip": "127.0.0.1",
+    "port": 25639
+}
