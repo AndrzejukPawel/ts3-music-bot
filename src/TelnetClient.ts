@@ -31,17 +31,27 @@ export class TelnetClient{
         });
     }
 
-    sendCommand(command: string, params: any){
+    sendCommand(command: string, params: any = undefined){
         const escapeCharacters = (text: string): string => {
             text = text.replace(/\\/g, '\\');
             text = text.replace(/ /g, '\\s');
             text = text.replace(/\//g, '\\\\/');
             return text;
         }
-        const propertyNames = Object.getOwnPropertyNames(params);
-        const paramsString = propertyNames.map((property) => `${property}=${escapeCharacters(params[property].toString())}`).join(' ');
-        Logger.info(`Sending command ${command} ${paramsString}`);
-        if(!this.telnetSocket.write(`${command} ${paramsString}\n`)){
+
+        var commandWithParams = '';
+
+        if(params){
+            const propertyNames = Object.getOwnPropertyNames(params);
+            const paramsString = propertyNames.map((property) => `${property}=${escapeCharacters(params[property].toString())}`).join(' ');
+            commandWithParams = `${command} ${paramsString}`;
+        }
+        else{
+            commandWithParams = command;
+        }
+        
+        Logger.info(`Sending command ${commandWithParams}`);
+        if(!this.telnetSocket.write(`${commandWithParams}\n`)){
             Logger.error(`Failed to write to socket!`);
         }
     }

@@ -108,8 +108,7 @@ async function main(){
     await wait(4000);
     ts3Client.telnetConnect(config.ip, config.port, config.apiKey);
     await wait(1000);
-    ts3Client.registerEventListener(TS3Event.notifytextmessage, textMessageHandler)
-
+    ts3Client.registerEventListener(TS3Event.notifytextmessage, textMessageHandler);
 }
 
 main();

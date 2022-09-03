@@ -30,9 +30,15 @@ export class TS3Client{
             }
         }
         this.telnet.registerCallback(authentication);
+
+        // sending whoami command every 5 minutes keeps connection alive
+        // when TeamSpeak3 Client doesn't receive any command for 10 minutes then it closes connection
+        setInterval((ts3Client: TS3Client) => {
+            ts3Client.telnetSendEvent('whoami');
+        }, 300000, this);
     }
 
-    telnetSendEvent(event: string, params: IMessageParams){
+    telnetSendEvent(event: string, params: IMessageParams | undefined = undefined){
         this.telnet.sendCommand(event, params);
     }
 
