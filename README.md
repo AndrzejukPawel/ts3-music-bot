@@ -19,6 +19,8 @@ Teamspeak3 music bot using puppeteer (chromium) for playing music from youtube.
 
 - set up the config file
 
+- run with `node src/index.js`
+
   
 
 ## Config
