@@ -78,6 +78,12 @@ async function main(){
                 });
                 break;
             }
+            case '!title':{
+                youtube.getTitle().then(title => {
+                    ts3Client.telnetSendEvent("sendtextmessage", { targetmode: eventParams.targetmode, target: eventParams.invokerid, msg: title as string});
+                });
+                break;
+            }
             default:{
                 Logger.info(`Command ${command} is invalid!`);
             }

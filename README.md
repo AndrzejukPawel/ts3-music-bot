@@ -56,3 +56,4 @@ Teamspeak3 music bot using puppeteer (chromium) for playing music from youtube.
 ##### TODO:
 
 - auto load all extensions from chromium_extensions folder
+- (un)escaping symbols when sending title to ts3 client
